@@ -1,19 +1,36 @@
+# IMAP credentials
 email: "your@email.com"
 password: "#y0ur-p4$$w0rd"
 imap_server: "imap.mailserver.com"
+
+# uncomment below 2 lines if using Anthropic Claude
 anthropic_api_key: "your-anthropic_api_key"
-openai_api_key: "your-openai_api_key"
-openai_model_name: "gpt-4-turbo-preview"  # or "gpt-3.5-turbo"
-claude_model_name: "claude-3-opus-20240229"  # or other Claude model versions
+claude_model_name: "claude-3-7-sonnet-20250219" # or other
+
+# uncomment below 2 lines if using OpenAI GPT
+# openai_api_key: "your-openai_api_key"
+# openai_model_name: "gpt-4-turbo-preview" # or other
+
+# uncomment below 2 lines if using Google Gemini
+# google_api_key: "your-google_api_key"
+# gemini_model_name: "gemini-2.0-flash" # or other
+
+# AI service options
 max_tokens: 1000
 temperature: 0.7
+
+# Email options
 mark_as_read: true
 blacklist:
-  - "spam@example.com"
   - "newsletter@"
   - "noreply@"
+  - "no-reply@"
+
+# Default system prompt
 system_prompt: |
   You are an email assistant. Generate helpful and professional responses to emails.
+  Please skip emails that are not "real conversations".
+  For example, skip emails that are automated, promotional, newsletters, invoices, reports, etc.
   When responding:
   1. Maintain a professional tone
   2. Address all points in the original email
