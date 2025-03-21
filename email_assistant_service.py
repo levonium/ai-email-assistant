@@ -54,7 +54,8 @@ def setup_logging():
 
     # Create formatters and add it to handlers
     log_format = logging.Formatter(
-        '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+        '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S,%f'[:-3]  # Truncate microseconds to 3 digits
     )
     file_handler.setFormatter(log_format)
     console_handler.setFormatter(log_format)

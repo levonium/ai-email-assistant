@@ -83,6 +83,11 @@ class BaseEmailAssistant(ABC):
                 if any(blacklisted in sender.lower() for blacklisted in self.config.get('blacklist', [])):
                     continue
 
+                # Skip blacklisted reply-tos if present
+                reply_to = email_message.get('reply-to')
+                if reply_to and any(blacklisted in reply_to.lower() for blacklisted in self.config.get('blacklist', [])):
+                    continue
+
                 # Extract email content
                 content = ""
                 if email_message.is_multipart():
